@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoSpace</title>
+  <!--========================LINK CSS=================-->
+    <link rel="stylesheet" href="css/style.css">
+
+  <!--========================LINK FONT =================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="  crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+  </head>
+<body>
+
+    <!--========================NAVIGASI/MENU=================-->
+        <div class="navbar">
+            <div class="logBar">
+                <div class="image"><a href="#"><img src="img/logoo.gif"></a> </div>
+              </div>
+                            <!-- auto scroll -->
+                            <div class="navigasi-halaman">
+                              <ul>
+                            <li> <a href="#home">About Us</a></li>
+                             <li> <a href="#properties">Our Properties</a></li>
+                             <li id="loginMenu"><a href="login.html" >Login</a></li>
+                            </ul>
+                            </div>
+              <div class="menu-toggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+      
+
+  <!--========================GAMBAR=================-->
+  <section id="hero-section">
+    <div class="slider__container">
+      <!-- slide 1 -->
+      <div class="slide">
+        <div class="content">
+          <div class="title">
+            <h1>Welcome To CoSpace</h1>
+            <span>Hotel</span>
+          </div>
+          <img src="img/slide-1.jpg" alt="slide-1" />
+        </div>
+      </div>
+      <!-- slide 2 -->
+      <div class="slide">
+        <div class="content">
+          <div class="title">
+            <h1>Your Comfort, Our Priority.</h1>
+            <span>CoSpace</span>
+          </div>
+          <img src="img/slide-2.jpg"alt="slide-2" />
+        </div>
+      </div>
+      <!-- slide 3 -->
+      <div class="slide">
+        <div class="content">
+          <div class="title">
+            <h1>More Than a Stay, It's an Experience.</h1>
+            <span>CoSpace</span>
+          </div>
+          <img src="img/slide-3.jpg" alt="slide-3" />
+        </div>
+      </div>
+    </div>
+    <!-- buttons -->
+    <div class="buttons">
+      <button class="prev-btn"><i class="fas fa-arrow-left"></i></button>
+      <button class="next-btn"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </section>
+
+  <!--========================PENCARIAN=================-->
+  <section class="floating-search">
+    <div class="search-bar">
+        <div class="input-group">
+            <label for="checkin">Check-In:</label>
+            <input type="date" id="checkin" placeholder="Select Date">
+        </div>
+        <div class="input-group">
+            <label for="checkout">Check-Out:</label>
+            <input type="date" id="checkout" placeholder="Select Date">
+        </div> 
+        <div class="input-group">
+            <label for="roomtype">RoomType:</label>
+            <select id="roomtype">
+              <option value="">Standard Room</option>
+              <option value="">Superior Room</option>
+              <option value="">Suite Room</option>
+              <option value="">Family Room</option>
+          </select>
+        </div>  
+        <div class="input-group">
+            <label for="guests">Guests:</label>
+            <input type="number" id="guests" placeholder="Guests">
+        </div>
+        <a href="beranda/searchpage.html">
+        <div> 
+        <button id="search-button">
+              <i class="fa fa-search"></i>
+          </div> </a>
+    </div>
+    </section>
+ 
+  <!--========================ABOUT US=================-->
+  <section id="home">
+    <div class="article">
+        <h1>CoSpace Hotel</h1>
+        <p>
+            Inspired by the beauty of Parahyangan, Cospace Hotel offers spectacular mountain views, indulgent dining, elegant guestrooms and exceptional hospitality personified by its 24-hour Butler Service. Located in the hills of Ciumbuleuit, and yet only minutes from the bustle of Bandung's city centre, the hotel is 10 km from Husein Sastranegara International Airport and 9km from Bandung train station. Cospace Hotel is the perfect place for a rejuvenating, opulent getaway, private gatherings, and well-organised events and meetings.
+      Inspired by the beauty of Parahyangan, Cospace Hotel offers spectacular mountain views, indulgent dining, elegant guestrooms and exceptional hospitality personified by its 24-hour Butler Service. Located in the hills of Ciumbuleuit, and yet only minutes from the bustle of Bandung's city centre, the hotel is 10 km from Husein Sastranegara International Airport and 9km from Bandung train station. Cospace Hotel is the perfect place for a rejuvenating, opulent getaway, private gatherings, and well-organised events and meetings.
+    </p>
+        <button id="readMoreBtn">Read More</button>
+    </div>
+    <div class="article-container">
+        <div class="slider">
+          <video width="640" height="360" controls autoplay loop muted>
+            <source src="img/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    
+        </div>
+    </div>
+</section>
+ <!--========================TYPE ROOM=================-->
+ <section id="typeroom">
+  <h3 class="titlep">Type Room on Our listing</h3>
+  <div class="line"></div>
+
+  <section class="tipekamar">
+    <div class="tipe">
+      <div class="kotak">
+        <img
+          src="img/kamar1.jpg"
+        />
+      </div>
+      <div class="kontentipe">
+        <h2>Standard Room</h2>
+        <p>
+          Standard room is a room with standard facilities such as a bed and bathroom.
+          The price is more affordable and suitable for simple accommodation needs.
+        </p>
+      </div>
+    </div>
+    
+    <div class="tipe">
+      <div class="kotak">
+        <img
+          src="img/kamar1.jpg"
+        />
+      </div>
+      <div class="kontentipe">
+        <h2>Superior Room</h2>
+        <p>
+          A superior room is a larger, more comfortable hotel room with additional facilities, such as a good view.
+           The price is higher than a standard room.
+        </p>
+      </div>
+    </div>
+    
+    <div class="tipe">
+      <div class="kotak">
+        <img
+        src="img/kamar1.jpg"
+        />
+      </div>
+      <div class="kontentipe">
+        <h2>Suite Room</h2>
+        <p>
+          A suite room is a larger luxury hotel room, consisting of several separate rooms, and equipped with exclusive facilities.
+          The price is higher than regular rooms.
+        </p>
+      </div>
+    </div>
+    
+    <div class="tipe">
+      <div class="kotak">
+        <img
+        src="img/kamar1.jpg"
+        />
+      </div>
+      <div class="kontentipe">
+        <h2>Family Room</h2>
+        <p>
+          A family room is a hotel room for families with a larger size and additional facilities for shared comfort.
+        </p>
+      </div>
+    </div>
+    </section>
+  </section>
+ </section>
+
+
+  <!--========================PROPERTIES=================-->
+	 <section id="properties">
+        <h3 class="titlep">Featured Properties on Our listing</h3>
+        <div class="line"></div>
+        <section class="content-section" id="content-section">
+          <!-- <div class="content-item" id="room1">
+            <a href="beranda/Details.html">
+              <img src="img/kamar2.png" alt="Deskripsi Gambar" >
+              <p>Well furnished Apartment</p>
+          <span>100 samart Street, LA, USA</span>
+          <br></br><br></a>
+          </div>
+          <div class="content-item" id="room2">
+            <a href="beranda/Details.html">
+              <img src="img/kamar2.png" alt="Deskripsi Gambar" >
+              <p>Well furnished Apartment</p>
+          <span>100 samart Street, LA, USA</span>
+          <br></br><br></a>
+          </div>
+          <div class="content-item" id="room3">
+            <a href="beranda/Details.html">
+              <img src="img/kamar2.png" alt="Deskripsi Gambar" >
+              <p>Well furnished Apartment</p>
+          <span>100 samart Street, LA, USA</span>
+          <br></br><br></a>
+          </div>
+          <div class="content-item" id="room4">
+            <a href="beranda/Details.html">
+              <img src="img/kamar2.png" alt="Deskripsi Gambar" >
+              <p>Well furnished Apartment</p>
+          <span>100 samart Street, LA, USA</span>
+          <br></br><br></a>
+          </div>
+          <div class="content-item" id="room5">
+            <a href="beranda/Details.html">
+              <img src="img/kamar2.png" alt="Deskripsi Gambar" >
+              <p>Well furnished Apartment</p>
+          <span>100 samart Street, LA, USA</span>
+          <br></br><br></a>
+          </div>
+          <div class="content-item" id="room6">
+            <a href="beranda/Details.html">
+              <img src="img/kamar2.png" alt="Deskripsi Gambar" >
+              <p>Well furnished Apartment</p>
+          <span>100 samart Street, LA, USA</span>
+          <br></br><br></a>
+          </div>
+          <div class="content-item" id="room7">
+            <a href="beranda/Details.html">
+              <img src="img/kamar2.png" alt="Deskripsi Gambar" >
+              <p>Well furnished Apartment</p>
+          <span>100 samart Street, LA, USA</span>
+          <br></br><br></a>
+          </div>
+          <div class="content-item" id="room8">
+            <a href="beranda/Details.html">
+              <img src="img/kamar2.png" alt="Deskripsi Gambar" >
+              <p>Well furnished Apartment</p>
+          <span>100 samart Street, LA, USA</span>
+          <br></br><br></a>
+          </div> -->
+      </section>
+    </section>
+
+ <!--========================FACILITIES=================-->
+ <section id="properties">
+  <h3 class="titlep">Facilities on Our listing</h3>
+  <div class="line"></div>
+    <section class="i-facilities">
+    <div class="i-row">
+      <div class="i-column">
+        <div class="i-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <h3>WIFI</h3>
+          <p>
+              Access hotspots that support 5G.
+          </p>
+        </div>
+      </div>
+      <div class="i-column">
+        <div class="i-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <h3>Free Breakfast</h3>
+          <p>
+            Get Western food for breakfast .
+          </p>
+        </div>
+      </div>
+      <div class="i-column">
+        <div class="i-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-tv"></i>
+          </div>
+          <h3>Netflix</h3>
+          <p>
+            Can wacth movies or tv shows.
+          </p>
+        </div>
+      </div>
+      <div class="i-column">
+        <div class="i-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-dumbbell"></i>
+          </div>
+          <h3>Fitness center & Spa</h3>
+          <p>
+            Can do training.
+          </p>
+        </div>
+      </div>
+      <div class="i-column">
+        <div class="i-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-bed"></i>
+          </div>
+          <h3>Comfortable Bed</h3>
+          <p>
+            Bigger and soft bed.
+          </p>
+        </div>
+      </div>
+      <div class="i-column">
+        <div class="i-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-shower"></i>
+          </div>
+          <h3>Clean Bathroom</h3>
+          <p>
+            Comfortable while take a bath.
+          </p>
+        </div>
+      </div>
+
+      <div class="i-column">
+          <div class="i-card">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-laptop"></i>
+            </div>
+            <h3>Workplace</h3>
+            <p>
+              Can get a good view and vibe in wokrplace.
+            </p>
+          </div>
+        </div>
+
+        <div class="i-column">
+          <div class="i-card">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-water-ladder"></i>
+            </div>
+            <h3>Pool</h3>
+            <p>
+              Available swiming pool.
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+ </section>
+
+  <!--========================FOOTER=================-->
+    <footer class="two-section-footer">
+        <div class="footer-section">
+            <!-- Bagian pertama footer -->
+            <img src="img/logo.gif">
+           <p>Where Every Stay Feels Like a Getaway!</p>
+           <br>
+           <div class="tombolteam">
+           <a href="beranda/team.html" class="team-btn">Our Team</a>   
+          </div>
+        </div>
+        <div class="footer-section">
+            <!-- Bagian kedua footer -->
+            <h2>CONTACT INFO</h2> <br>
+            
+            <p>Phone : 1234567890</p>
+            <p>Email : group12@gmail.com</p>
+            <p>Location : Medan, Indonesia</p></br>
+            <p>
+            <div class="footer-content">
+                <ul class="medsos">
+                  <li>
+                    <a href="">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </p>
+        </div>
+    </footer>   
+    
+  <!--========================LINK JS=================-->
+  <!-- JS Intreactive -->
+	<script src="js/script.js"></script>
+  <script src="js/readmore.js"></script>
+  <script src="js/slide.js"></script>
+
+  <!-- JS Bacnk End -->
+  <script src="./connect/scriptsGet.js"></script>
+</body>
+</html>

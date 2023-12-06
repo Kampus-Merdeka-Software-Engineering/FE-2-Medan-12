@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="hallogin">
+    <div class="card">
+        <span class="icon-back">
+            <a href="index.html"> Back </a>
+        </span>
+        <div class="boxLogin">
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return validateLoginForm()">
+                <div class="inputBox">
+                    <input type="email" id="loginEmail" required="required">
+                    <span>Email</span>
+                    <div id="loginEmailError" class="error-message"></div>
+                </div>
+                <div class="inputBox">
+                    <input class="password" id="password" type="password" required="required">
+                    <span>Password</span>
+                    <div id="show-hide" onclick="action()">
+                        <img id='icon' src="img/show-hide.png">
+                    </div> <br>
+                    <div id="passwordError" class="error-message"></div>
+                    <!-- code tambahan -->
+                </div>
+                <button type="submit" class="btn-login" >Login</button>
+                <div class="login-register">
+                    <p>Don't have an account?
+                    <a  class="register-link">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="boxRegister">
+            <h2>Register</h2>
+            <form id="registerForm" onsubmit="return validateRegisterForm()">
+                <div class="inputBox">
+                    <input name="name" type="text" id="registerUsername" required="required">
+                    <span>Username</span>
+                    <div id="registerUsernameError" class="error-message"></div>
+                </div>
+                <div class="inputBox">
+                    <input name="email" type="email" id="email" required="required">
+                    <span>Email</span>
+                    <div id="emailError" class="error-message"></div>
+                </div>
+                <div class="inputBox">
+                    <input name="password" type="password" id="registerPassword" required="required">
+                    <span>Password</span>
+                    <div id="show-hide" onclick="actionn()">
+                        <img id='icon' src="img/show-hide.png">
+                    </div><br>
+                    <div id="registerPasswordError" class="error-message"></div>
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input id="termsCheckbox" type="checkbox">I agree to the terms & conditions
+                    </label>
+                </div>
+                <div id="termsError" class="error-message"></div>
+                <button id="buttonRegister" type="submit" class="btn-register" onclick="postRegister" ">Register</button>
+
+                <div class="login-register">
+                    <p>Already have an account?
+                    <a class="login-link">Login</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <!-- JS FE -->
+    <script src="js/script.js"></script>
+    <script src="js/login-validation.js"></script>
+    <script src="js/register-validation.js"></script>
+
+    <!-- JS BE -->
+    <script src = "./connect/scripstPost.js"></script>
+</body>
+</html>
