@@ -902,6 +902,12 @@ transform: translateY(-180px);
 color: #d8b556;
 }
 
+.kotak h3 {
+  color: #d8b556;
+  text-align: center;
+  padding-top: 10px;
+  }
+
 @media (max-width: 768px) {
 
 
