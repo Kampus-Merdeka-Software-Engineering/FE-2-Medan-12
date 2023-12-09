@@ -47,60 +47,27 @@
       <div class="input-group">
           <label for="roomtype">RoomType:</label>
           <select id="roomtype">
-            <option value="">Standar Room</option>
-            <option value="">Superior Room</option>
-            <option value="">Suite Room</option>
-            <option value="">Family Room</option>
+            <option value="standard">Standard Room</option>
+            <option value="superior">Superior Room</option>
+            <option value="suite">Suite Room</option>
+            <option value="family">Family Room</option>
         </select>
       </div>  
       <div class="input-group">
           <label for="guests">Guests:</label>
           <input type="number" id="guests" placeholder="Guests">
       </div>
-      <div>
-      <button id="search-button">
+      <div> 
+      <button id="search-button" onclick="searchRooms()">
             <i class="fa fa-search"></i>
-        </div>
+      </button>
+      </div>
   </div>
-  </section>
 </section>
-
+<br>
 <section class="searchpage">
-    
-    <div class="table">
-        <div class="row">
-            <div class="col">
-                <img src="../img/kamar2.png" width="50%"   align-content="center">
-                <div class="judul">
-                    <h2>Well furnished Apartment</h2>
-                    <span>100 samart Street, LA, USA</span>
-                    <p> </p>
-                  </div>    
-                <a href="Details.html"> <button>Selengkapnya..</button></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img src="../img/kamar2.png" width="50%"   align-content="center">
-                <div class="judul">
-                    <h2>Well furnished Apartment</h2>
-                    <span>100 samart Street, LA, USA</span>
-                    <p> </p>
-                  </div>    
-                <a href="Details.html"> <button>Selengkapnya..</button></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img src="../img/kamar2.png" width="50%"   align-content="center">
-                <div class="judul">
-                    <h2>Well furnished Apartment</h2>
-                    <span>100 samart Street, LA, USA</span>
-                    <p> </p>
-                  </div>    
-                <a href="Details.html"> <button>Selengkapnya..</button></a>
-            </div>
-        </div>
+    <div class="table" id="table">
+        
     </div>
 </section>
 
@@ -152,10 +119,10 @@
 <!--========================LINK JS=================-->
 <script src="../js/script.js"></script>
 <script src="../js/readmore.js"></script>
-<script src="../js/login.js"></script>
 <script src="../js/slide.js"></script>
 
 <!-- BE JS -->
 <script src="../connect/scriptDetail.js"></script>
+<script src="../connect/scriptSearch.js"></script>
 </body>
 </html>

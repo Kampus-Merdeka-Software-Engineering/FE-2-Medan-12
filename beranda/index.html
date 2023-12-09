@@ -84,21 +84,21 @@
         <div class="input-group">
             <label for="roomtype">RoomType:</label>
             <select id="roomtype">
-              <option value="">Standard Room</option>
-              <option value="">Superior Room</option>
-              <option value="">Suite Room</option>
-              <option value="">Family Room</option>
+              <option value="standard">Standard Room</option>
+              <option value="superior">Superior Room</option>
+              <option value="suite">Suite Room</option>
+              <option value="family">Family Room</option>
           </select>
         </div>  
         <div class="input-group">
             <label for="guests">Guests:</label>
             <input type="number" id="guests" placeholder="Guests">
         </div>
-        <a href="searchpage.html">
         <div> 
-        <button id="search-button">
+        <button id="search-button" onclick="searchRooms()">
               <i class="fa fa-search"></i>
-          </div> </a>
+        </button>
+        </div>
     </div>
     </section>
  
@@ -351,5 +351,6 @@
 
   <!-- JS BE -->
   <script src="../connect/scriptloginRoom.js"></script>
+  <script src="../connect/scriptSearch.js"></script>
 </body>
 </html>

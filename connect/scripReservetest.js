@@ -1,20 +1,60 @@
 const apiURL = 'http://localhost:5000';
 
 // Fetch reservations and render them
-fetch(`${apiURL}/reserve/reserve-get`)
-  .then(res => res.json())
-  .then(reserves => renderDataToContent(reserves.data));
+fetchReservations();
+
+function fetchReservations() {
+  fetch(`${apiURL}/reserve/reserve-get`)
+    .then(res => res.json())
+    .then(reserves => {
+      // Fetch room details for each reservation
+      const promises = reserves.data.map(reserve =>
+        fetchRoomDetails(reserve.roomId)
+      );
+
+      // Wait for all room details to be fetched
+      return Promise.all(promises)
+        .then(roomDetails => {
+          // Merge reservation data with room data
+          const mergedData = reserves.data.map((reserve, index) => ({
+            ...reserve,
+            room: roomDetails[index].data, // Assuming 'data' contains the room details
+          }));
+          renderDataToContent(mergedData);
+        });
+    })
+    .catch(error => {
+      console.error('Error fetching reservations:', error);
+      alert('An error occurred while retrieving reservations');
+    });
+}
+
+function fetchRoomDetails(roomId) {
+    if (!roomId) {
+      console.error('Error: Room ID is undefined.');
+      return Promise.resolve({ data: {} }); // Return an empty object in case of an error
+    }
+  
+    return fetch(`${apiURL}/room/${roomId}-room`)
+      .then(res => res.json())
+      .catch(error => {
+        console.error(`Error fetching room details for room ID ${roomId}:`, error);
+        return { data: {} }; // Return an empty object in case of an error
+      });
+  }
+  
 
 function renderDataToContent(reserves) {
   let line = document.getElementById('table');
   line.innerHTML = ''; // Clear existing content before rendering
 
   for (const reserve of reserves) {
+    console.log('Room ID:', reserve.roomId);
     const reservationElement = document.createElement('div');
     reservationElement.className = 'row';
     reservationElement.innerHTML = `
       <div class="col" id="${reserve.id}">
-        <img src="${reserve.room.imageUrl}" width="50%" align-content="center">
+        <img src="${reserve.room.img}" width="50%" align-content="center">
         <div class="judul">
           <h2>${reserve.room.type}</h2>
           <h4>Orderer by: </h4>
@@ -39,10 +79,6 @@ function cancelReservation(reservationId) {
       headers: {
         'Content-Type': 'application/json',
       },
-      // Add any necessary body parameters
-      body: JSON.stringify({
-        // Add any necessary parameters for cancellation
-      }),
     })
       .then(res => res.json())
       .then(data => {
