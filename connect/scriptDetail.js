@@ -1,10 +1,8 @@
 const apiURL = 'http://localhost:5000';
 
-// Dapatkan nilai ID dari parameter URL
 const urlParams = new URLSearchParams(window.location.search);
 const roomId = urlParams.get('id');
 
-// Gunakan nilai roomId untuk mengambil dan menampilkan detail kamar dari API
 fetch(`${apiURL}/room/${roomId}-room`)
   .then(res => res.json())
   .then(hotel => renderRoomDetail(hotel.data))
@@ -12,8 +10,6 @@ fetch(`${apiURL}/room/${roomId}-room`)
 
 function renderRoomDetail(room) {
   const roomDetailsSection = document.getElementById('detail');
-
-  // Tampilkan detail kamar di dalam div room-details-section
   roomDetailsSection.innerHTML = `
   <div class="containergallery id=${room.id}">
     <section class="gallery">

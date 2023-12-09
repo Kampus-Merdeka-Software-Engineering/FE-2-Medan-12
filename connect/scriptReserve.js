@@ -1,4 +1,4 @@
-// GET
+
 const apiURL = 'http://localhost:5000';
 
 fetch(`${apiURL}/reserve/reserve-get`)
@@ -20,7 +20,7 @@ function renderDataToContent(reserves) {
               CheckOut: ${reserve.checkout}<br> 
               Guest: ${reserve.guest} </p>
             </div>
-            <button type="button" onclick="cancelReservation(${reserve.id})">Cancel Reservation</button>
+            <button type="button"  onclick="cancelReservation(${reserve.id})">Cancel Reservation</button>
           </div>
         </div>`;
       id++;
@@ -28,9 +28,7 @@ function renderDataToContent(reserves) {
   }
   
 
-//   DELETE
 function cancelReservation(reserveId) {
-    // Kirim permintaan penghapusan ke server
     fetch(`${apiURL}/reserve/${reserveId}-reserve`, {
       method: 'DELETE',
     })
@@ -38,12 +36,14 @@ function cancelReservation(reserveId) {
       if (!response.ok) {
         throw new Error('Failed to cancel reservation');
       }
-      // Hapus elemen HTML setelah berhasil menghapus di server
       const elementToRemove = document.getElementById(reserveId);
       if (elementToRemove) {
         elementToRemove.remove();
-        alert('Reservation canceled successfully!');
+        alert('Reserve success remove')
       }
     })
     .catch(error => console.error('Error:', error));
   }
+
+
+  

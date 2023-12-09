@@ -9,7 +9,6 @@ function validateRegisterForm() {
     var passwordError = document.getElementById('registerPasswordError');
     var termsError = document.getElementById('termsError');
 
-    // Reset previous error messages
     usernameError.innerHTML = "";
     emailError.innerHTML = "";
     passwordError.innerHTML = "";
@@ -41,7 +40,6 @@ function validateRegisterForm() {
 }
 
 function isValidEmail(email) {
-    // Basic email validation using a regular expression
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }

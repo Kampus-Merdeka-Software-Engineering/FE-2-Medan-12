@@ -5,7 +5,6 @@ function validateLoginForm() {
     var emailError = document.getElementById('loginEmailError');
     var passwordError = document.getElementById('passwordError');
 
-    // Reset previous error messages
     emailError.innerHTML = "";
     passwordError.innerHTML = "";
 

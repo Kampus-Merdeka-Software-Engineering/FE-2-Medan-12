@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const readMoreBtn = document.getElementById("readMoreBtn");
     const articleText = document.querySelector("#home .article p");
 
-    const summaryLength = 50; // Jumlah karakter untuk ringkasan
-    const fullText = articleText.innerHTML; // Simpan teks penuh
+    const summaryLength = 50;
+    const fullText = articleText.innerHTML;
 
     let isOpen = false;
 
@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
         isOpen = !isOpen;
 
         if (isOpen) {
-            articleText.innerHTML = fullText; // Mengembalikan teks penuh
+            articleText.innerHTML = fullText;
             readMoreBtn.innerText = "Read Less";
         } else {
-            articleText.innerHTML = truncateText(fullText, summaryLength); // Kembali menampilkan ringkasan
+            articleText.innerHTML = truncateText(fullText, summaryLength);
             readMoreBtn.innerText = "Read More";
         }
     }
@@ -32,7 +32,7 @@ function truncateText(text, length) {
 
 
 
-// ----------------------menu hambuger-----------------------------------------------------------------------
+// ----------------------menu hambuger----------------------------------
 const menuToggle = document.querySelector('.menu-toggle input');
 const nav = document.querySelector('.navigasi-halaman ul');
 
