@@ -15,7 +15,7 @@ function renderRoomDetail(room) {
   <div class="portrait-box" id=${room.id}>
   <img src="${room.img}">
   <div class="judul">
-    <h2>${room.type}</h2>
+    <h2>${room.type} Room</h2>
     <br>
     <span>${room.description}</span>
  </div>

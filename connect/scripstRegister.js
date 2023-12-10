@@ -3,7 +3,11 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
     const name = document.getElementById('registerUsername').value;
     const email = document.getElementById('email').value;
-    const password = document.getElementById('registerPassword').value;
+    const password = document.getElementById('registerPassword').value;    
+    var termsCheckbox = document.getElementById('termsCheckbox').checked;
+
+    var termsError = document.getElementById('termsError');
+
 
     try {
         const apiURL = 'http://localhost:5000';
@@ -15,10 +19,14 @@ document.getElementById('registerForm').addEventListener('submit', async functio
             body: JSON.stringify({ name, email, password })
         });
 
+
         if (response.ok) {
-            const result = await response.json();
-            alert('Register Successfully!');
-            window.location.href = `beranda/index.html?`;
+            if (!termsCheckbox) {
+                termsError.innerHTML = "You must agree to the terms and conditions";
+                return false;
+            }
+            alert('Register Successfully! Please login again');
+            window.location.href = `login.html?`;
         } else {
             const errorData = await response.json();
             console.error('Registration failed:', errorData.message);

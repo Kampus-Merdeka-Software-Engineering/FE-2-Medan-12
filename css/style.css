@@ -965,8 +965,7 @@ color: #d8b556;
 
 .titlep {
   width: 412px;
-height: 107px;
-flex-shrink: 0;
+  flex-shrink: 0;
   color: #484848;
   font-size: 36px;
   font-style: normal;
@@ -1744,7 +1743,6 @@ background: #050505;
 
 
 .reservation, .searchpage {
-            
   padding: 10% 20% 5% 20%;
   min-height: 50vh;
 }
@@ -1752,7 +1750,6 @@ background: #050505;
 .table {
   display: table;
   width: 100%;
-  
 }
 
 .row {
@@ -1765,17 +1762,16 @@ border-radius: 10%;
 .col {
   padding: 20px; 
   display: flex;
-justify-content: space-between;
-align-items: center;
+  justify-content: space-between;
+  align-items: center;
   background-color: #fff;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan menarik */
-  box-shadow: #333;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .col:hover {
   background: linear-gradient(35deg, #b88746 10%, #fdf5a6 100%);
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan menarik */
-box-shadow: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk tampilan menarik */
+  box-shadow: #333;
 }
 .col img {
   height: auto;

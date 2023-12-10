@@ -38,7 +38,7 @@ function searchPageRooms() {
     checkin,
     checkout,
     roomtype,
-    guests,
+    guests, 
   });
 
   // Make a GET request to the server endpoint with the search parameters
@@ -72,49 +72,59 @@ function renderResults(rooms) {
 }
 
 
-function fetchRoomDetails() {
-  // Parse the URL to get the room type
-  const urlParams = new URLSearchParams(window.location.search);
-  const roomType = urlParams.get('type');
-
-  // Make a GET request to the server endpoint with the room type
-  fetch(`${url}/room/${roomType}`)
-    .then(res => res.json())
-    .then(data => {
+async function fetchRoomDetails() {
+    try {
+      // Parse the URL to get the room type
+      const urlParams = new URLSearchParams(window.location.search);
+      const roomType = urlParams.get('type');
+  
+      // Make a GET request to the server endpoint with the room type
+      const response = await fetch(`${url}/room/${roomType}`);
+      const data = await response.json();
+  
       renderRoomDetails(data);
-    })
-    .catch(error => {
+    } catch (error) {
       console.error('Error fetching room details:', error);
-    });
-}
-
-function renderRoomDetails(room) {
-  const roomDetailsContainer = document.getElementById('table');
-  roomDetailsContainer.innerHTML = '';
-
-  if (!room) {
-    roomDetailsContainer.innerHTML = 'Room details not found.';
-    return;
+      handleFetchError();
+    }
   }
-  // Display room details in the container
-  const roomDetailsElement = document.createElement('div');
-  roomDetailsElement.innerHTML = `
-    <div class="row">
-        <div class="col">
-            <img src="${room.img}" width="50%"   align-content="center">
-            <div class="judul">
-                <h2>${room.type} Room</h2>
-                <span>${room.price}</span>
-                </div>    <br>
-            <a href="Details.html"> <button>Selengkapnya..</button></a>
-        </div>
-    </div>
-`;
- 
-  roomDetailsContainer.appendChild(roomDetailsElement);
-}
-
-// Fetch room details when the page loads
-fetchRoomDetails();
+  
+  function renderRoomDetails(room) {
+    const roomDetailsContainer = document.getElementById('table');
+    roomDetailsContainer.innerHTML = '';
+  
+    if (!room) {
+      roomDetailsContainer.innerHTML = 'Room details not found.';
+      return;
+    }
+  
+    // Display room details in the container
+    const roomDetailsElement = createRoomDetailsElement(room);
+    roomDetailsContainer.appendChild(roomDetailsElement);
+  }
+  
+  function createRoomDetailsElement(room) {
+    const roomDetailsElement = document.createElement('div');
+    roomDetailsElement.className = 'row';
+    roomDetailsElement.innerHTML = `
+      <div class="col">
+          <img src="${room.img}" width="50%" align-content="center">
+          <div class="judul">
+              <h2>${room.type} Room</h2>
+              <span>${room.price}</span>
+          </div><br>
+          <a href="Details.html"><button>Selengkapnya..</button></a>
+      </div>
+    `;
+    return roomDetailsElement;
+  }
+  
+  function handleFetchError() {
+    const roomDetailsContainer = document.getElementById('table');
+    roomDetailsContainer.innerHTML = 'Error fetching room details. Please try again later.';
+  }
+  
+  // Fetch room details when the page loads
+  fetchRoomDetails();
 
 
