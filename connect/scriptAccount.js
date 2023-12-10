@@ -54,6 +54,12 @@ fetch(`${apiURL}/user/user/profile/${userId}`)
     const newName = newNameElement.value;
     const newEmail = newEmailElement.value;
   
+    // Check if the email contains "@" symbol
+    if (!newEmail.includes('@')) {
+      alert('Email must contain "@" symbol.');
+      return;
+    }
+  
     fetch(`${apiURL}/user/user/profile/${userId}`, {
       method: 'PUT',
       headers: {
@@ -64,10 +70,13 @@ fetch(`${apiURL}/user/user/profile/${userId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log('User updated successfully:', data);
+        alert('Berhasil terganti');
+        window.location.reload();
       })
       .catch((error) => {
         console.error('Error updating user:', error);
       });
   }
+  
   
 
