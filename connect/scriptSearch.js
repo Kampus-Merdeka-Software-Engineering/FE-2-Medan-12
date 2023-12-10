@@ -38,7 +38,7 @@ function searchPageRooms() {
     checkin,
     checkout,
     roomtype,
-    guests, 
+    guests,
   });
 
   // Make a GET request to the server endpoint with the search parameters
@@ -81,7 +81,7 @@ async function fetchRoomDetails() {
       // Make a GET request to the server endpoint with the room type
       const response = await fetch(`${url}/room/${roomType}`);
       const data = await response.json();
-  
+      console.log(data)
       renderRoomDetails(data);
     } catch (error) {
       console.error('Error fetching room details:', error);
@@ -113,7 +113,7 @@ async function fetchRoomDetails() {
               <h2>${room.type} Room</h2>
               <span>${room.price}</span>
           </div><br>
-          <a href="Details.html"><button>Selengkapnya..</button></a>
+          <a href="reservation-form.html?id=1"><button>Reserve</button></a>
       </div>
     `;
     return roomDetailsElement;

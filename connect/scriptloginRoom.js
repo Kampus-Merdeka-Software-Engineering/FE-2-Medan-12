@@ -15,7 +15,7 @@ function renderDataToContent(rooms) {
     detailsLink.href = `Details.html?id=${room.id}`;
     detailsLink.innerHTML = `
       <img src=${room.img} alt="Deskripsi Gambar">
-      <p>${room.type}</p>
+      <p>${room.type} Room</p>
       <span>${room.guest} guests</span>
     `;
 

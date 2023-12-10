@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoSpace</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="account.css">
     <link rel="icon" href="../img/cs.png" type="image/x-icon">
     <link
     rel="stylesheet"
@@ -40,10 +39,9 @@
 
 <div class="profile-container">
 
-  <div class="profile-left">
-    <img src="../img/profil.jpg" alt="Profile Picture">
-    <h2>Rangers Kuning</h2>
-    <p>ppp@gmail.com</p>
+  <div class="profile-left" id="profile">
+    <!-- <h2>Rangers Kuning</h2>
+    <p>ppp@gmail.com</p>-->
   </div>
 
   <div class="profile-right">
@@ -52,20 +50,15 @@
     <button id="editBtn" onclick="toggleEditForm()">Edit Profil</button> &nbsp; &nbsp;
     <a href="../index.html"><button id="logoutBtn">Logout</button></a>
     <form id="editForm">
-
       <div class="form-input">
         <label for="newName">Name</label>
-        <input type="text" id="newName" name="newName" required />
+        <input type="text" id="newName" />
       </div>
       <div class="form-input">
         <label for="newEmail">Email</label>
-        <input type="text" id="newName" name="newEmail" required />
-      </div>
-      <div class="form-input">
-        <label for="newPass">Password</label>
-        <input type="text" id="newName" name="newPass" required />
+        <input type="text" id="newEmail" />
       </div> <br>
-      <button id="editBtn" type="button" onclick="saveChanges()">Simpan</button>
+      <button id="editBtn" type="button" onclick="updateUserProfile()">Simpan</button>
     </form>
   </div>
 </div>
@@ -116,4 +109,5 @@
 </footer>
 </body>
 <script src="../js/script.js"></script>
+<script src="../connect/scriptAccount.js"></script>
 </html>

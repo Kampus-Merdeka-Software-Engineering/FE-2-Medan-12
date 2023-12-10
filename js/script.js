@@ -39,18 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
         card.classList.add('active');
     });
 
-    let input = document.getElementById('password');
-    let icon = document.getElementById('icon');
-  
-    function action() {
-        if (input.type === 'text') {
-            input.type = 'password';
-            icon.src = 'img/show-hide.png';
-        } else {
-            input.type = 'text';
-            icon.src = 'img/show-hide.png';
-        }
-    }
     function validateRegisterForm() {
         const username = document.getElementById('registerUsername').value;
         const email = document.getElementById('email').value;

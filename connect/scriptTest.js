@@ -6,6 +6,10 @@ document.getElementById('reserveForm').addEventListener('submit', async function
     const checkout = document.getElementById('dateout').value;
     const guest = document.getElementById('guests').value;
 
+    // Ubah cara Anda mengambil roomId
+    const roomIdElement = document.querySelector('.portrait-box'); // Ganti dengan selektor yang sesuai
+    const roomId = roomIdElement ? roomIdElement.id : null;
+
     try {
         const apiURL = 'http://localhost:5000';
         const response = await fetch(`${apiURL}/reserve/reserve-post`, {
@@ -13,7 +17,7 @@ document.getElementById('reserveForm').addEventListener('submit', async function
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, checkin, checkout, guest })
+            body: JSON.stringify({ email, checkin, checkout, guest, roomId })
         });
 
         if (response.ok) {
