@@ -105,7 +105,7 @@ async function fetchRoomDetails() {
               <h2>${data.type} Room</h2>
               <span>Price ${data.price}</span>
           </div><br>
-          <a href="reservation-form.html?id=1"><button>Reserve</button></a>
+          <a href="reservation-form.html?type=${data.type}"><button>Reserve</button></a>
       </div>
     `;
     return roomDetailsElement;
