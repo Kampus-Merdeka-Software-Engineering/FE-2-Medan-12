@@ -50,7 +50,7 @@ function renderDataToContent(reserves) {
     reservationElement.className = 'row';
 
     // Destructure the data property from the room object
-    const { type: roomType, img: roomImg } = reserve.room;
+    const { type: roomType, img: roomImg } = reserve.room || { type: '', img: '' };
 
     reservationElement.innerHTML = `
       <div class="col" id="${reserve.id}">
@@ -70,6 +70,7 @@ function renderDataToContent(reserves) {
     line.appendChild(reservationElement);
   }
 }
+
 
 
 function cancelReservation(reservationId) {
