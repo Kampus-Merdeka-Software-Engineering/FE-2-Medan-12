@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const username = document.getElementById('registerUsername').value;
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('registerPassword').value;
-                const apiURL =  "http://localhost:31132"
+                const apiURL =  "https://be-2-medan-12.up.railway.app/"
 
                 const response = await fetch(`${apiURL}/user/user-register`, {
                     method: 'POST',

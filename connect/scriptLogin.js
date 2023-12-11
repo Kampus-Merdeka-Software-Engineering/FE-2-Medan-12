@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
   const password = document.getElementById('loginPassword').value;
 
   try {
-    const apiURL = 'http://localhost:31132';
+    const apiURL = 'https://be-2-medan-12.up.railway.app/';
     const response = await fetch(`${apiURL}/user/login`, {
       method: 'POST',
       headers: {

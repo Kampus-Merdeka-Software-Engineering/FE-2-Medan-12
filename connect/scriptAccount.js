@@ -1,6 +1,6 @@
 const userId = JSON.parse(localStorage.getItem('currentUser')).id;
 
-fetch(`http://localhost:31132/user/user/profile/${userId}`)
+fetch(`https://be-2-medan-12.up.railway.app//user/user/profile/${userId}`)
   .then((response) => response.json())
   .then((data) => {
     const profileElement = document.getElementById('profile');
@@ -13,7 +13,7 @@ fetch(`http://localhost:31132/user/user/profile/${userId}`)
     console.error('Error fetching user profile:', error);
   });
 
-apiURL = 'http://localhost:31132';
+apiURL = 'https://be-2-medan-12.up.railway.app/';
 fetch(`${apiURL}/user/user/profile/${userId}`)
   .then((response) => response.json())
   .then((data) => {

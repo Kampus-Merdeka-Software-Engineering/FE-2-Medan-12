@@ -1,4 +1,4 @@
-const url = 'http://localhost:31132';
+const url = 'https://be-2-medan-12.up.railway.app/';
 
 function searchRooms() {
   const type = document.getElementById('roomtype').value;
