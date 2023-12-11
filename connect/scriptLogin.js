@@ -18,10 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
       const result = await response.json();
       alert(result.message);
 
-      // Assuming you have a valid user object in the result, you can store it in local storage
       localStorage.setItem('currentUser', JSON.stringify(result.user));
-
-      // Redirect to 'beranda/index.html'
       window.location.href = 'beranda/index.html';
     } else {
       const errorData = await response.json();

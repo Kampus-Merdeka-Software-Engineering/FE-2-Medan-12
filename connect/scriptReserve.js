@@ -1,6 +1,4 @@
 const apiURL = 'http://localhost:5000';
-
-// Fetch reservations and render them
 fetchReservations();
 
 async function fetchReservations() {
@@ -8,15 +6,10 @@ async function fetchReservations() {
     const res = await fetch(`${apiURL}/reserve/reserve-get`);
     const reserves = await res.json();
 
-    // Fetch room details for each reservation
     const promises = reserves.data.map(reserve =>
       fetchRoomDetails(reserve.roomId)
     );
-
-    // Wait for all room details to be fetched
     const roomDetails = await Promise.all(promises);
-
-    // Merge reservation data with room data
     const mergedData = reserves.data.map((reserve, index) => ({
       ...reserve,
       room: roomDetails[index].data,
@@ -33,7 +26,7 @@ async function fetchRoomDetails(roomId) {
   try {
     if (!roomId) {
       console.error('Error: Room ID is undefined.');
-      return { data: {} }; // Return an empty object in case of an error
+      return { data: {} };
     }
 
     const response = await fetch(`${apiURL}/room/${roomId}-room`);
@@ -42,24 +35,21 @@ async function fetchRoomDetails(roomId) {
     return { data };
   } catch (error) {
     console.error(`Error fetching room details for room ID ${roomId}:`, error);
-    return { data: {} }; // Return an empty object in case of an error
+    return { data: {} }; 
   }
 }
 
 function renderDataToContent(reserves) {
   let line = document.getElementById('table');
-  line.innerHTML = ''; // Clear existing content before rendering
+  line.innerHTML = '';
 
   for (const reserve of reserves) {
-    // Check if reserve.roomId exists before accessing it
     const roomId = reserve.roomId || '';
   
-    console.log('Room ID:', roomId);
   
     const reservationElement = document.createElement('div');
     reservationElement.className = 'row';
   
-    // Check if reserve.room exists before accessing its properties
     const roomImg = reserve.room ? reserve.room.img : '';
     const roomType = reserve.room ? reserve.room.type : '';
   
@@ -82,10 +72,8 @@ function renderDataToContent(reserves) {
   }
 }
 
-// Function to cancel a reservation using the DELETE method
 function cancelReservation(reservationId) {
   if (confirm("Are you sure you want to cancel this reservation?")) {
-    // Send a request to the server to cancel the reservation using the DELETE method
     fetch(`${apiURL}/reserve/${reservationId}-reserve`, {
       method: 'DELETE',
       headers: {
@@ -95,8 +83,6 @@ function cancelReservation(reservationId) {
       .then(res => res.json())
       .then(data => {
         alert(data.message);
-        
-        // Remove the canceled reservation from the UI
         removeReservationFromUI(reservationId);
       })
       .catch(error => {
@@ -106,7 +92,6 @@ function cancelReservation(reservationId) {
   }
 }
 
-// Function to remove a reservation from the UI
 function removeReservationFromUI(reservationId) {
   const reservationElement = document.getElementById(reservationId);
   if (reservationElement) {

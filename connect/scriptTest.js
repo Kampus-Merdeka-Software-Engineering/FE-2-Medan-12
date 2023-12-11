@@ -6,8 +6,7 @@ document.getElementById('reserveForm').addEventListener('submit', async function
     const checkout = document.getElementById('dateout').value;
     const guest = document.getElementById('guests').value;
 
-    // Ubah cara Anda mengambil roomId
-    const roomIdElement = document.querySelector('.portrait-box'); // Ganti dengan selektor yang sesuai
+    const roomIdElement = document.querySelector('.portrait-box');
     const roomId = roomIdElement ? roomIdElement.id : null;
 
     try {

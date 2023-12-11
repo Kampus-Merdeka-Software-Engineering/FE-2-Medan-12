@@ -1,18 +1,102 @@
-const apiURL = 'http://localhost:5000';
+const url = 'http://localhost:5000';
 
-fetch(`${url}/room/${roomType}`)
-  .then(res => res.json())
-  .then(hotel => renderDataToContent(hotel.data));
+function searchRooms() {
+  const type = document.getElementById('roomtype').value;
 
-function renderDataToContent(rooms) {
-const line = document.getElementById('table');
+  if (!type) {
+    alert('Please select a room type.');
+    return;
+  }
 
-for (const room of rooms) {
-    const roomSection = document.createElement('div');
-    roomSection.className = 'row';
-    
-    const detailsLink = document.createElement('a');
-    roomSection.innerHTML = `
+  fetch(`${url}/room/${type}`)
+    .then(res => res.json())
+    .then(data => {
+      if (type === type) {
+        const searchPageURL = `searchpage.html?type=${type}`;
+        window.location.href = searchPageURL;
+      } else {
+        alert('No matching rooms found.');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
+
+
+function searchPageRooms() {
+  const checkin = document.getElementById('checkin').value;
+  const checkout = document.getElementById('checkout').value;
+  const roomtype = document.getElementById('roomtype').value;
+  const guests = document.getElementById('guests').value;
+
+  const searchParams = new URLSearchParams({
+    checkin,
+    checkout,
+    roomtype,
+    guests,
+  });
+
+  fetch(`${url}/room/${type, searchParams}`)
+    .then(res => res.json())
+    .then(data => {
+      renderResults(data.data);
+    })
+    .catch(error => {
+      console.error('Error fetching room data:', error);
+      alert('An error occurred while searching for rooms');
+    });
+}
+
+function renderResults(rooms) {
+  const resultsContainer = document.getElementById('results-container');
+  resultsContainer.innerHTML = ''; 
+  if (rooms.length === 0) {
+    resultsContainer.innerHTML = 'No matching rooms found.';
+    return;
+  }
+
+  for (const room of rooms) {
+    const roomElement = document.createElement('div');
+    roomElement.innerHTML = `
+      <p>Type: ${room.type}, Description: ${room.description}</p>
+    `;
+    resultsContainer.appendChild(roomElement);
+  }
+}
+
+
+async function fetchRoomDetails() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const roomType = urlParams.get('type');
+  
+      const response = await fetch(`${url}/room/${roomType}`);
+      const data = await response.json();
+      renderRoomDetails(data);
+    } catch (error) {
+      console.error('Error fetching room details:', error);
+      handleFetchError();
+    }
+  }
+  
+  function renderRoomDetails(room) {
+    const roomDetailsContainer = document.getElementById('table');
+    roomDetailsContainer.innerHTML = '';
+  
+    if (!room) {
+      roomDetailsContainer.innerHTML = 'Room details not found.';
+      return;
+    }
+  
+    const roomDetailsElement = createRoomDetailsElement(room);
+    roomDetailsContainer.appendChild(roomDetailsElement);
+  }
+  
+  function createRoomDetailsElement(room) {
+    const roomDetailsElement = document.createElement('div');
+    roomDetailsElement.className = 'row';
+    roomDetailsElement.innerHTML = `
       <div class="col">
           <img src="${room.img}" width="50%" align-content="center">
           <div class="judul">
@@ -22,8 +106,14 @@ for (const room of rooms) {
           <a href="reservation-form.html?id=1"><button>Reserve</button></a>
       </div>
     `;
+    return roomDetailsElement;
+  }
+  
+  function handleFetchError() {
+    const roomDetailsContainer = document.getElementById('table');
+    roomDetailsContainer.innerHTML = 'Error fetching room details. Please try again later.';
+  }
+  
+  fetchRoomDetails();
 
-    roomSection.appendChild(detailsLink);
-    line.appendChild(roomSection);
-}
-}
+

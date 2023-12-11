@@ -1555,8 +1555,15 @@ background: #050505;
   text-align: left;
   width: 100%; /* Menetapkan lebar 100% untuk memastikan elemen <p> dan <span> berada di bawah */
 }
+
+
+}
+@media only screen and (max-width: 412px) {
+  .menu-toggle{
+    display: flex;
 }
 
+}
 /* ------------------------------------------- END ACCOUNT  --------------------------------*/
 
 
@@ -1608,7 +1615,6 @@ display: inline-block;
 width: 130px;
 height: 130px;
 margin-bottom: 50px;
-/*background:gold;*/
 position: relative;
 z-index: 1;
 }

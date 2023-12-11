@@ -3,19 +3,15 @@ const url = 'http://localhost:5000';
 function searchRooms() {
   const type = document.getElementById('roomtype').value;
 
-  // Check if the type is provided
   if (!type) {
     alert('Please select a room type.');
     return;
   }
 
-  // Make a GET request to the server endpoint with the selected room type
   fetch(`${url}/room/${type}`)
     .then(res => res.json())
     .then(data => {
-      // Check if any matching rooms are found
       if (type === type) {
-        // Redirect to the search page with the room type as a query parameter
         const searchPageURL = `searchpage.html?type=${type}`;
         window.location.href = searchPageURL;
       } else {
@@ -41,7 +37,6 @@ function searchPageRooms() {
     guests,
   });
 
-  // Make a GET request to the server endpoint with the search parameters
   fetch(`${url}/room/${type, searchParams.toString()}`)
     .then(res => res.json())
     .then(data => {
@@ -55,8 +50,7 @@ function searchPageRooms() {
 
 function renderResults(rooms) {
   const resultsContainer = document.getElementById('results-container');
-  resultsContainer.innerHTML = ''; // Clear existing content
-
+  resultsContainer.innerHTML = ''; 
   if (rooms.length === 0) {
     resultsContainer.innerHTML = 'No matching rooms found.';
     return;
@@ -74,11 +68,9 @@ function renderResults(rooms) {
 
 async function fetchRoomDetails() {
     try {
-      // Parse the URL to get the room type
       const urlParams = new URLSearchParams(window.location.search);
       const roomType = urlParams.get('type');
   
-      // Make a GET request to the server endpoint with the room type
       const response = await fetch(`${url}/room/${roomType}`);
       const data = await response.json();
       console.log(data)
@@ -98,20 +90,20 @@ async function fetchRoomDetails() {
       return;
     }
   
-    // Display room details in the container
     const roomDetailsElement = createRoomDetailsElement(room);
     roomDetailsContainer.appendChild(roomDetailsElement);
   }
   
   function createRoomDetailsElement(room) {
+    const { data } = room
     const roomDetailsElement = document.createElement('div');
     roomDetailsElement.className = 'row';
     roomDetailsElement.innerHTML = `
       <div class="col">
-          <img src="${room.img}" width="50%" align-content="center">
+          <img src="${data.img}" width="50%" align-content="center">
           <div class="judul">
-              <h2>${room.type} Room</h2>
-              <span>${room.price}</span>
+              <h2>${data.type} Room</h2>
+              <span>Price ${data.price}</span>
           </div><br>
           <a href="reservation-form.html?id=1"><button>Reserve</button></a>
       </div>
@@ -124,7 +116,6 @@ async function fetchRoomDetails() {
     roomDetailsContainer.innerHTML = 'Error fetching room details. Please try again later.';
   }
   
-  // Fetch room details when the page loads
   fetchRoomDetails();
 
 
