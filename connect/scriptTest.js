@@ -10,7 +10,7 @@ document.getElementById('reserveForm').addEventListener('submit', async function
     const roomId = roomIdElement ? roomIdElement.id : null;
 
     try {
-        const apiURL = 'http://localhost:5000';
+        const apiURL = 'http://localhost:18804';
         const response = await fetch(`${apiURL}/reserve/reserve-post`, {
             method: 'POST',
             headers: {

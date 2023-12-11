@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const username = document.getElementById('registerUsername').value;
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('registerPassword').value;
-                const apiURL =  "http://localhost:5000"
+                const apiURL =  "http://localhost:18804"
 
                 const response = await fetch(`${apiURL}/user/user-register`, {
                     method: 'POST',
