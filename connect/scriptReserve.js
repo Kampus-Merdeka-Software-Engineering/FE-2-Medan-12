@@ -1,4 +1,4 @@
-const apiURL = 'https://be-2-medan-12.up.railway.app/';
+const apiURL = 'https://be-2-medan-12.up.railway.app';
 fetchReservations();
 
 async function fetchReservations() {

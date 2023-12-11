@@ -10,7 +10,7 @@ document.getElementById('reserveForm').addEventListener('submit', async function
     const roomId = roomIdElement ? roomIdElement.id : null;
 
     try {
-        const apiURL = 'https://be-2-medan-12.up.railway.app/';
+        const apiURL = 'https://be-2-medan-12.up.railway.app';
         const response = await fetch(`${apiURL}/reserve/reserve-post`, {
             method: 'POST',
             headers: {

@@ -10,7 +10,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
 
     try {
-        const apiURL = 'https://be-2-medan-12.up.railway.app/';
+        const apiURL = 'https://be-2-medan-12.up.railway.app';
         const response = await fetch(`${apiURL}/user/user-register`, {
             method: 'POST',
             headers: {

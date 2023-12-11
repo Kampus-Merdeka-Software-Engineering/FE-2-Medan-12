@@ -1,4 +1,4 @@
-const apiURL = 'https://be-2-medan-12.up.railway.app/';
+const apiURL = 'https://be-2-medan-12.up.railway.app';
 
 const urlParams = new URLSearchParams(window.location.search);
 const roomId = urlParams.get('id');
