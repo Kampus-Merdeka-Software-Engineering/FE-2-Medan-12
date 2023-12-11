@@ -10,7 +10,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
 
     try {
-        const apiURL = 'http://localhost:18804';
+        const apiURL = 'http://localhost:31132';
         const response = await fetch(`${apiURL}/user/user-register`, {
             method: 'POST',
             headers: {

@@ -1,4 +1,4 @@
-const url = 'http://localhost:18804';
+const url = 'http://localhost:31132';
 
 function searchRooms() {
   const type = document.getElementById('roomtype').value;

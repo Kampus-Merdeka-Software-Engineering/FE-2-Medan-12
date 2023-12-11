@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
   const password = document.getElementById('loginPassword').value;
 
   try {
-    const apiURL = 'http://localhost:18804';
+    const apiURL = 'http://localhost:31132';
     const response = await fetch(`${apiURL}/user/login`, {
       method: 'POST',
       headers: {

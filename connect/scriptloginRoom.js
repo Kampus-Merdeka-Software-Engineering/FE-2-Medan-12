@@ -1,4 +1,4 @@
-const apiURL = 'http://localhost:18804';
+const apiURL = 'http://localhost:31132';
 
 fetch(`${apiURL}/room/rooms`)
   .then(res => res.json())
