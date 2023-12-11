@@ -45,14 +45,13 @@ function renderDataToContent(reserves) {
 
   for (const reserve of reserves) {
     const roomId = reserve.roomId || '';
-  
-  
+
     const reservationElement = document.createElement('div');
     reservationElement.className = 'row';
-  
-    const roomImg = reserve.room ? reserve.room.img : '';
-    const roomType = reserve.room ? reserve.room.type : '';
-  
+
+    // Destructure the data property from the room object
+    const { type: roomType, img: roomImg } = reserve.room;
+
     reservationElement.innerHTML = `
       <div class="col" id="${reserve.id}">
         <img src="${roomImg}" width="50%" align-content="center">
@@ -67,10 +66,11 @@ function renderDataToContent(reserves) {
         <button type="button" onclick="cancelReservation(${reserve.id})">Cancel Reservation</button>
       </div>
     `;
-  
+
     line.appendChild(reservationElement);
   }
 }
+
 
 function cancelReservation(reservationId) {
   if (confirm("Are you sure you want to cancel this reservation?")) {
